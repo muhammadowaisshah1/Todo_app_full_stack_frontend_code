@@ -4,11 +4,6 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: 'standalone', // Enable standalone output for Docker
 
-  // Disable telemetry in production
-  experimental: {
-    instrumentationHook: false,
-  },
-
   // Security headers
   async headers() {
     return [
