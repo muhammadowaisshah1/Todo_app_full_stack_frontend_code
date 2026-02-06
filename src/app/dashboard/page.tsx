@@ -37,6 +37,11 @@ export default function DashboardPage() {
     await deleteTask(taskId);
   };
 
+  // ✅ Wrapper function - void return karne ke liye
+  const handleToggleComplete = async (taskId: string): Promise<void> => {
+    await toggleComplete(taskId);
+  };
+
   // Calculate stats
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(t => t.is_completed).length;
@@ -113,7 +118,7 @@ export default function DashboardPage() {
           ) : (
             <TaskList
               tasks={tasks}
-              onToggleComplete={toggleComplete}
+              onToggleComplete={handleToggleComplete}
               onEdit={setEditingTask}
               onDelete={setDeletingTask}
             />
